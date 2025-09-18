@@ -261,12 +261,19 @@
             border: 2px solid rgba(106, 17, 203, 0.3);
             transition: transform 0.3s ease;
         }
-        /* Target only Card 4's image for landscape view */
-        .articles-container .card:nth-child(4) .card__image {
-            object-fit: contain;
-            aspect-ratio: 16/9;
+        /* New additional image styling for Card 1 */
+        .card__additional-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 1px solid rgba(106, 17, 203, 0.2);
+            transition: transform 0.3s ease;
         }
-        .card:hover .card__image {
+        .card:hover .card__image,
+        .card:hover .card__additional-image {
             transform: scale(1.02);
         }
         .card__quote {
@@ -526,6 +533,9 @@
             .card__image {
                 height: 140px;
             }
+            .card__additional-image {
+                height: 100px;
+            }
             .eybers-footer-links {
                 flex-direction: column;
                 align-items: center;
@@ -553,6 +563,9 @@
             }
             .card__image {
                 height: 120px;
+            }
+            .card__additional-image {
+                height: 80px;
             }
             .card__title {
                 font-size: 0.95rem;
@@ -657,6 +670,10 @@
                              alt="Evolution of academic literacy assessment"
                              class="card__image">
                         <p>For decades, academic literacy has been assessed through standardized multiple-choice questions (MCQs), which prioritize recall over critical engagement. This approach emerged from industrial-era education models that valued efficiency and standardization. However, as academic discourse has evolved toward more complex, multimodal forms of knowledge production, MCQs have become increasingly inadequate for measuring true academic literacy.</p>
+                        <!-- New additional image for Card 1 -->
+                        <img src="https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/d888aaab-7a04-47ea-9011-ca9ec7247795/1758198769.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk4NzY5IiwicmVzb3VyY2VfY2hhdF9pZCI6IjFmNDE2YWVkLTFiZWEtNGMyYS1iOGM4LTQxYzE0MDhkNDA2YyJ9.7yV4QIuRLO3_9NUHCV5DRbDl2sAu-0aMLDyqpsG7qY4" 
+                             alt="Academic literacy concept"
+                             class="card__additional-image">
                         <p>True academic literacy encompasses the ability to navigate disciplinary conventions, engage with complex texts, construct evidence-based arguments, and communicate effectively across multiple modalities. MCQs reduce this rich complexity to binary choices, failing to capture the depth of understanding required in contemporary academic environments.</p>
                         <blockquote class="card__quote">
                             <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy cannot be reduced to discrete factual recall; it is a situated practice that requires engagement with context, purpose, and audience.
