@@ -261,9 +261,10 @@
             border: 2px solid rgba(106, 17, 203, 0.3);
             transition: transform 0.3s ease;
         }
-        /* Target only Card 4's image to show fully without cropping */
+        /* Target only Card 4's image for landscape view */
         .articles-container .card:nth-child(4) .card__image {
             object-fit: contain;
+            aspect-ratio: 16/9;
         }
         .card:hover .card__image {
             transform: scale(1.02);
@@ -757,7 +758,7 @@
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="https://th.bing.com/th/id/R.c81193590786659ef310567257cde82e?rik=N9l1lJDw4iB5LA&pid=ImgRaw&r=0"
+                        <img src="https://www.tutordoctor.com/images/blog/iStock-532484317.jpg  "
                              alt="Cultivating evaluative judgment"
                              class="card__image">
                         <p>MCQs provide no opportunity for students to develop evaluative judgment—the ability to critically assess quality, relevance, and credibility of information and arguments. GenAI, however, can facilitate assessment that develops this crucial academic skill. Students can interact with AI-generated content, evaluate its strengths and weaknesses, and refine their own work based on these evaluations.</p>
