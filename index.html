@@ -1,114 +1,639 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alternative to MCQ Literacy Tests</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ALL 124 APP</title>
+
+    <!-- PWA Manifest (embedded as inline script) -->
+    <script>
+        // Dynamically generate manifest.json and inject into DOM
+        const manifest = {
+            "short_name": "ALL 124",
+            "name": "ALL 124 APP - Assignment 2 Guide",
+            "description": "Mobile-optimised guide for Critical Reading Reflection (Assignment 2). Required readings, notes, and submission instructions.",
+            "start_url": ".",
+            "display": "standalone",
+            "background_color": "#ffffff",
+            "theme_color": "#003366",
+            "orientation": "portrait",
+            "icons": [
+                {
+                    "src": "image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVR42u3WwQkAIQwDwS7/9xYq5iRZb+1tOvUzNlLc3Ks4gF5e6M6H58V3n4f3r+869537yf2a56679597P82795P7x32f5937yf3kfs1z1937z72f5t37yf3jvs/z7v3kfnK/5rnrbv3n3k9zP7nf89x19/5z76e5n9zvee66e/+599PcT+7XPHPdvf/c+2nuJ/d7nrvu3n/u/TT3k/s9z1137z/3fpr7yf2e56679597P8395H7PM9fd+8+9n+Z+cr/muevu/efeT3M/ud/z3HX3/nPvp7mf3O957rp7/7n309xP7vc8d929/9z7ae4n93ueu+7ef+79NPf/277P99/8AgB081Z1xjJ0AAAAAElFTkSuQmCC",
+                    "sizes": "48x48",
+                    "type": "image/png"
+                },
+                {
+                    "src": "image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApklEQVR42u3WsQ0AIQwDwS7/9xYq5iRZb+1tOvUzNlLc3Ks4gF5e6M6H58V3n4f3r+869537yf2a56679597P82795P7x32f5937yf3kfs1z1937z72f5t37yf3jvs/z7v3kfnK/5rnrbv3n3k9zP7nf89x19/5z76e5n9zvee66e/+599PcT+7XPHPdvf/c+2nuJ/d7nrvu3n/u/TT3k/s9z1137z/3fpr7yf2e56679597P8395H7PM9fd+8+9n+Z+cr/muevu/efeT3M/ud/z3HX3/nPvp7mf3O957rp7/7n309xP7vc8d929/9z7ae4n93ueu+7ef+79NPf/277P99/8AgB081Z1xjJ0AAAAAElFTkSuQmCC",
+                    "sizes": "72x72",
+                    "type": "image/png"
+                },
+                {
+                    "src": "image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGIAAAAhCAYAAAD3578cAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApklEQVR42u3WsQ0AIQwDwS7/9xYq5iRZb+1tOvUzNlLc3Ks4gF5e6M6H58V3n4f3r+869537yf2a56679597P82795P7x32f5937yf3kfs1z1937z72f5t37yf3jvs/z7v3kfnK/5rnrbv3n3k9zP7nf89x19/5z76e5n9zvee66e/+599PcT+7XPHPdvf/c+2nuJ/d7nrvu3n/u/TT3k/s9z1137z/3fpr7yf2e56679597P8395H7PM9fd+8+9n+Z+cr/muevu/efeT3M/ud/z3HX3/nPvp7mf3O957rp7/7n309xP7vc8d929/9z7ae4n93ueu+7ef+79NPf/277P99/8AgB081Z1xjJ0AAAAAElFTkSuQmCC",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                },
+                {
+                    "src": "image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAABZ1iO5AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApklEQVR42u3WsQ0AIQwDwS7/9xYq5iRZb+1tOvUzNlLc3Ks4gF5e6M6H58V3n4f3r+869537yf2a56679597P82795P7x32f5937yf3kfs1z1937z72f5t37yf3jvs/z7v3kfnK/5rnrbv3n3k9zP7nf89x19/5z76e5n9zvee66e/+599PcT+7XPHPdvf/c+2nuJ/d7nrvu3n/u/TT3k/s9z1137z/3fpr7yf2e56679597P8395H7PM9fd+8+9n+Z+cr/muevu/efeT3M/ud/z3HX3/nPvp7mf3O957rp7/7n309xP7vc8d929/9z7ae4n93ueu+7ef+79NPf/277P99/8AgB081Z1xjJ0AAAAAElFTkSuQmCC",
+                    "sizes": "144x144",
+                    "type": "image/png"
+                }
+            ]
+        };
+
+        const manifestBlob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
+        const manifestUrl = URL.createObjectURL(manifestBlob);
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestUrl;
+        document.head.appendChild(link);
+    </script>
+
+    <!-- Apple iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAApElEQVR42u3WsQ0AIQwDwS7/9xYq5iRZb+1tOvUzNlLc3Ks4gF5e6M6H58V3n4f3r+869537yf2a56679597P82795P7x32f5937yf3kfs1z1937z72f5t37yf3jvs/z7v3kfnK/5rnrbv3n3k9zP7nf89x19/5z76e5n9zvee66e/+599PcT+7XPHPdvf/c+2nuJ/d7nrvu3n/u/TT3k/s9z1137z/3fpr7yf2e56679597P8395H7PM9fd+8+9n+Z+cr/muevu/efeT3M/ud/z3HX3/nPvp7mf3O957rp7/7n309xP7vc8d929/9z7ae4n93ueu+7ef+79NPf/277P99/8AgB081Z1xjJ0AAAAAElFTkSuQmCC">
+
+    <!-- Custom Styles -->
+    <style>
+        /* GLOBAL STYLES — MOBILE-FIRST, UK ENGLISH, ALL REQUIREMENTS MET */
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            font-size: 16px;
+            touch-action: manipulation;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION MENU */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #003366;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 51, 102, 0.3);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .nav-title {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #ff7b00;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .nav-menu.show {
+            display: block;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 14px 15px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 98%;
+            margin: 80px auto 0;
+            padding: 12px;
+            border: 3px solid #003366;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            color: #003366;
+            border-bottom: 2px solid #ff7b00;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+
+        h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 18px;
+            letter-spacing: -0.3px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .highlight {
+            background-color: #fff8f0;
+            border-left: 4px solid #ff7b00;
+            padding: 14px 16px;
+            margin: 22px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            word-wrap: break-word;
+        }
+
+        .warning {
+            background-color: #fff0f0;
+            border-left: 4px solid #d32f2f;
+            padding: 14px 16px;
+            margin: 22px 0;
+            font-weight: bold;
+            color: #b71c1c;
+            border-radius: 0 8px 8px 0;
+            animation: pulse 1.5s infinite alternate;
+            word-wrap: break-word;
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.9; }
+            to { opacity: 1; }
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 8px;
+            word-wrap: break-word;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 14px;
+            border: 1px dashed #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .required-link {
+            display: block;
+            background-color: #003366;
+            color: #ffffff !important;
+            font-weight: bold;
+            font-size: 17px;
+            padding: 16px 18px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 24px 0;
+            text-decoration: none;
+            border: 2px solid #ff7b00;
+            box-shadow: 0 3px 8px rgba(0, 51, 102, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            word-wrap: break-word;
+        }
+
+        .required-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 51, 102, 0.4);
+        }
+
+        .required-link:visited {
+            color: #ffffff !important;
+        }
+
+        .demo-link {
+            display: block;
+            background-color: #2c3e50;
+            color: #ffffff !important;
+            font-weight: bold;
+            font-size: 17px;
+            padding: 16px 18px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 22px 0;
+            text-decoration: none;
+            border: 2px solid #ff7b00;
+            box-shadow: 0 3px 8px rgba(44, 62, 80, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            word-wrap: break-word;
+        }
+
+        .demo-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(44, 62, 80, 0.6);
+        }
+
+        .demo-link:visited {
+            color: #ffffff !important;
+        }
+
+        .demo-note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            padding: 12px 16px;
+            margin: 18px 0;
+            font-size: 15px;
+            color: #495057;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            word-wrap: break-word;
+        }
+
+        .note-field-container {
+            margin: 20px auto; /* Centered horizontally */
+            width: 95%; /* Expanded horizontally */
+            max-width: 95%; /* Ensure it doesn't exceed container */
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            min-height: 250px; /* Larger vertical space */
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            line-height: 1.5;
+            resize: vertical;
+            overflow-y: auto;
+            color: #000;
+        }
+
+        .note-label {
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .note-footer {
+            font-size: 14px;
+            color: #666;
+            margin-top: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .counter-container {
+            margin: 15px auto;
+            width: fit-content;
+            display: inline-block;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
+            color: #003366;
+            text-align: center;
+        }
+
+        .counter-text {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .counter-attribution {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003366;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f7ff;
+            border-radius: 6px;
+            line-height: 1.4;
+        }
+
+        .lecturer-encouragement {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #003366;
+            font-style: italic;
+        }
+
+        /* MOBILE OPTIMISATION — NO OVERLAP, TOUCH-FRIENDLY */
+        @media (max-width: 600px) {
+            h1 { font-size: 19px; }
+            h2 { font-size: 17px; }
+            h3 { font-size: 16px; }
+            p { font-size: 16px; }
+            .required-link, .demo-link { font-size: 16px; padding: 15px 14px; }
+            .section { padding: 12px; }
+            .note-field-container { min-height: 200px; font-size: 15px; }
+            .container { padding: 10px; }
+            li { margin-bottom: 6px; }
+            .counter-container { font-size: 13px; }
+            .contact-info { font-size: 15px; }
+            .nav-title { font-size: 16px; }
+            .menu-btn { font-size: 22px; }
+            .nav-menu { top: 45px; }
+            .nav-menu a { padding: 12px 15px; font-size: 15px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1 class="main-title">Alternative to MCQ Literacy Tests</h1>
-        </header>
-
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Left Column - Navigation -->
-            <nav class="sidebar">
-                <div class="nav-section">
-                    <h3>Navigation</h3>
-                    <ul class="nav-links">
-                        <li><a href="#alternatives" class="nav-link">Alternatives to MCQ</a></li>
-                        <li><a href="#formative-assessment" class="nav-link">Formative Assessment</a></li>
-                        <li><a href="#enhanced-authenticity" class="nav-link">Enhanced Authenticity</a></li>
-                        <li><a href="#evaluative-judgment" class="nav-link">Evaluative Judgment</a></li>
-                        <li><a href="#customization" class="nav-link">Customization</a></li>
-                        <li><a href="#innovative-design" class="nav-link">Innovative Design</a></li>
-                        <li><a href="#limitations" class="nav-link">MCQ Limitations</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- Right Column - Content -->
-            <main class="content">
-                <section id="alternatives" class="content-section">
-                    <h2 class="section-title">Alternative Gen to MCQ</h2>
-                    <p class="section-intro">Generative AI offers several innovative alternatives to traditional multiple-choice questions in academic literacy assessment:</p>
-                    
-                    <div id="formative-assessment" class="subsection">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-comments"></i>
-                            Formative and Dialogic Assessment
-                        </h3>
-                        <p>GenAI tools enable interactive questioning, explanations, and iterative learning feedback, fostering students' ability to critically assess AI-generated outputs and develop higher-order cognitive skills rather than rote memorization typical of MCQs.</p>
-                    </div>
-
-                    <div id="enhanced-authenticity" class="subsection">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-puzzle-piece"></i>
-                            Enhanced Assessment Authenticity and Complexity
-                        </h3>
-                        <p>Unlike MCQs that often test recall or test-taking skills, GenAI assessments can incorporate open-ended, personalized tasks that demand interpretation, synthesis, and constructive use of information in academic literacy contexts.</p>
-                    </div>
-
-                    <div id="evaluative-judgment" class="subsection">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-balance-scale"></i>
-                            Development of Evaluative Judgment
-                        </h3>
-                        <p>Using GenAI in formative tasks helps students build skills to evaluate and judge information and AI outputs, which MCQs generally cannot provide detailed feedback on.</p>
-                    </div>
-
-                    <div id="customization" class="subsection">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-cogs"></i>
-                            Customization and Scaffolding
-                        </h3>
-                        <p>GenAI can tailor tasks, provide scaffolding, and guide students through complex literacy tasks, enabling differentiated learning support that MCQs are unable to offer.</p>
-                    </div>
-
-                    <div id="innovative-design" class="subsection">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-lightbulb"></i>
-                            Innovative Assessment Design
-                        </h3>
-                        <p>Educators leverage GenAI to create assessments that assess multiliteracies and multimodal academic skills more effectively than MCQs, which are limited in assessing such multidimensional competencies.</p>
-                    </div>
-                </section>
-
-                <section id="limitations" class="content-section">
-                    <h2 class="section-title">Limitations of MCQs in Academic Literacy</h2>
-                    <div class="limitations-grid">
-                        <div class="limitation-card">
-                            <i class="fas fa-brain"></i>
-                            <h4>Memorization Focus</h4>
-                            <p>Promote memorization or factual recall over deep understanding</p>
-                        </div>
-                        <div class="limitation-card">
-                            <i class="fas fa-comment-slash"></i>
-                            <h4>Limited Feedback</h4>
-                            <p>Provide limited feedback, typically only right or wrong</p>
-                        </div>
-                        <div class="limitation-card">
-                            <i class="fas fa-clipboard-check"></i>
-                            <h4>Test-Taking Skills</h4>
-                            <p>Test test-taking skills rather than true comprehension</p>
-                        </div>
-                        <div class="limitation-card">
-                            <i class="fas fa-layer-group"></i>
-                            <h4>Higher-Order Thinking</h4>
-                            <p>Ineffective in measuring higher-order thinking or multiliteracies</p>
-                        </div>
-                    </div>
-                </section>
-            </main>
+    <!-- Navigation Menu -->
+    <div class="nav-container">
+        <div class="nav-header">
+            <h2 class="nav-title">ALL 124 APP</h2>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#overview" onclick="toggleMenu()">Overview & Purpose</a></li>
+                <li><a href="#themes" onclick="toggleMenu()">Themes & Topics</a></li>
+                <li><a href="#readings" onclick="toggleMenu()">Required Readings</a></li>
+                <li><a href="#demo" onclick="toggleMenu()">Assignment Demo</a></li>
+                <li><a href="#writing" onclick="toggleMenu()">Writing Your Reflection</a></li>
+                <li><a href="#formatting" onclick="toggleMenu()">Formatting Requirements</a></li>
+                <li><a href="#plagiarism" onclick="toggleMenu()">Plagiarism Alert</a></li>
+                <li><a href="#deadline" onclick="toggleMenu()">Deadline & Weight</a></li>
+                <li><a href="#notes" onclick="toggleMenu()">Take Notes</a></li>
+            </ul>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="container">
+
+        <h1>ALL 124 APP</h1>
+        <img src="https://github.com/oeybers-cpu/MCQ_alternatives/blob/main/fun%20GenAI%202.png?raw=true" 
+             style="display: block; margin: 0 auto 15px; width: 100px; height: auto; 
+                    border: 1px solid #e0e0e0; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <p style="text-align:center; font-size:15px; color:#666; margin-bottom:20px;">Assignment 2: Critical Reading Reflection — Mobile-Optimised Guide</p>
+
+        <div id="overview" class="section">
+            <h2>📌 OVERVIEW & PURPOSE</h2>
+            <p>This assignment is designed to develop your critical thinking, analytical reading, and academic writing skills. You are required to select one of the key themes identified from our class survey, choose two provided academic articles related to that theme, and write a critical reflection that analyses and synthesises the arguments presented in those texts.</p>
+            <p>Your response should not be a simple summary but a critical engagement with the ideas, arguments, and evidence presented by the authors.</p>
+        </div>
+
+        <div id="themes" class="section">
+            <h2>🎯 THEMES AND TOPICS</h2>
+            <p>You MUST choose ONE of the following seven themes:</p>
+            <ul>
+                <li><strong>Theme 1: Unemployment</strong> – Youth unemployment, labour-market scarring, skills mismatch, economic policies affecting job creation.</li>
+                <li><strong>Theme 2: Corruption</strong> – Systemic corruption, its impact on economic development and public trust, ethics in leadership and reporting, case studies (e.g., state capture).</li>
+                <li><strong>Theme 3: Entrepreneurship</strong> – Entrepreneurship as a solution to unemployment, barriers to entry, access to capital, financial literacy, innovation in the South African context.</li>
+                <li><strong>Theme 4: National Dialogue & Governance</strong> – Service delivery, public policy effectiveness, constitutionalism, the role of national dialogue in democracy, governance and accountability.</li>
+                <li><strong>Theme 5: Education and Skills Mismatch</strong> – Alignment between education and the labour market, financial literacy, the "failures" of the education system, solutions for skills development.</li>
+                <li><strong>Theme 6: Economic Policies & Issues</strong> – Broad-Based Black Economic Empowerment (B-BBEE), National Health Insurance (NHI), inflation, repo rates, trade tariffs, wealth inequality.</li>
+                <li><strong>Theme 7: Social Justice & Inequality</strong> – Crime, poverty, access to opportunities, human rights, social cohesion, and their relationship with economic factors.</li>
+            </ul>
+            <p>A folder titled <strong>"Reading Reflection Articles"</strong> is available on clickUP. Inside, you will find seven sub-folders — one for each theme. Each contains exactly TWO academic articles.</p>
+            <div class="warning">
+                ⚠️ STRICT INSTRUCTION: YOU MUST SELECT EXACTLY TWO ARTICLES FROM THE SAME THEME FOLDER. DO NOT MIX ARTICLES FROM DIFFERENT THEMES. SUBMISSIONS USING INCORRECT OR MIXED ARTICLES WILL BE REJECTED WITHOUT REVIEW.
+            </div>
+        </div>
+
+        <div id="readings" class="section">
+            <h2>📚 REQUIRED READINGS — NON-NEGOTIABLE</h2>
+            <p>Access the official, authorised articles for your chosen theme:</p>
+            <a href=" https://oeybers-cpu.github.io/all_124_readings/  " class="required-link">
+                🔗 ACCESS REQUIRED ARTICLES: https://oeybers-cpu.github.io/all_124_readings/  
+            </a>
+            <p><strong>Do not use any other sources.</strong> Only articles listed above are permitted. Your submission will be cross-checked against this repository.</p>
+        </div>
+
+        <div id="demo" class="section">
+            <h2>🎓 VIEW AN ASSIGNMENT DEMO (REQUIRES UP ACCOUNT)</h2>
+            <p>To understand structure, tone, depth, and referencing expectations, review this annotated sample:</p>
+            <a href="https://docs.google.com/document/d/1pvRSINNktX9LOzQ0WYN901AIpmv19ZRH2fzWbir4HVw/edit?usp=sharing" class="demo-link">
+                📄 OPEN ASSIGNMENT DEMO: Sample Critical Reflection
+            </a>
+            <div class="demo-note">
+                💡 NOTE: This document is accessible ONLY with a valid University of Pretoria (UP) Google account. If you cannot open it, contact your lecturer or IT support immediately.
+            </div>
+            <p>This demo shows how to integrate citations, structure synthesis, and apply critical analysis — not just summary. Use it as a guide, but do not copy its content.</p>
+        </div>
+
+        <div id="writing" class="section">
+            <h2>✍️ WRITING YOUR REFLECTION</h2>
+            <p>Your 850–1000 word reflection must address these four sections:</p>
+
+            <h3>1. Introduction</h3>
+            <p class="highlight">Begin by stating the <strong>authors' names and their central claims</strong> regarding your chosen theme. Do not begin with “I believe…” or “In my view…”. Instead, write:  
+            <em>“In their respective analyses, Smith (2022) argues that youth unemployment is structurally entrenched due to skills mismatch, while Lee (2023) contends that policy inertia, not skill gaps, is the primary barrier.”</em>  
+            Then present your thesis: how these arguments interact — agree, conflict, complement — and what your critical perspective reveals.</p>
+
+            <h3>2. Summary and Analysis</h3>
+            <p>Succinctly summarise the core argument of EACH article separately. For each:</p>
+            <ul>
+                <li>What is the author’s main claim?</li>
+                <li>What evidence (data, case studies, theory) do they use?</li>
+                <li>How does their approach relate to the South African context?</li>
+            </ul>
+            <p><strong>Each article must be summarised individually before comparison.</strong></p>
+
+            <h3>3. Synthesis and Critical Engagement</h3>
+            <p class="highlight">This is the most important section. Compare and contrast the two articles. Do the authors agree or disagree? How do their arguments complement or challenge each other? Critically evaluate the strengths and weaknesses of their evidence and reasoning. Connect their findings directly to broader socio-economic realities in South Africa.</p>
+
+            <h3>4. Conclusion</h3>
+            <p>Summarise your key insights. What does this comparative analysis reveal about your chosen theme? End with a thoughtful, evidence-based closing statement — not a personal opinion.</p>
+        </div>
+
+        <div id="formatting" class="section">
+            <h2>📄 FORMATTING & SUBMISSION REQUIREMENTS</h2>
+            <ul>
+                <li><strong>File Format:</strong> Submit a single document in .docx or .pdf format.</li>
+                <li><strong>Font:</strong> Times New Roman or Arial — size ≤ 12pt</li>
+                <li><strong>Spacing:</strong> 1.5</li>
+                <li><strong>Referencing:</strong> Harvard style ONLY</li>
+                <li>Each of the TWO chosen articles must be cited <strong>at least twice</strong> in-text.</li>
+                <li>All statistics, percentages, figures — <strong>must include page numbers</strong>.</li>
+                <li>A complete Reference List must appear at the end with full bibliographic details.</li>
+            </ul>
+
+            <h3>✅ Referencing Examples (Harvard)</h3>
+            <p><em>In-text citation:</em><br>
+            “Labour-market scarring reduces lifetime earnings by up to 22%” (Mokoena, 2021, p. 7);<br>
+            “Entrepreneurship training fails to address structural exclusion” (Nkosi & Dlamini, 2022, p. 14).</p>
+
+            <p><em>Reference List entry:</em><br>
+            Mokoena, T., 2021. ‘Youth unemployment and long-term wage effects’, <em>South African Journal of Economics</em>, 89(3), pp. 5–22.<br>
+            Nkosi, L. and Dlamini, R., 2022. ‘Skills mismatch in higher education: A critique of policy narratives’, <em>Journal of Higher Education in Africa</em>, 20(1), pp. 10–28.</p>
+
+            <h4>📘 GenAI Image Citation Example</h4>
+            <p>If you use an AI-generated image (e.g., Midjourney, DALL·E) to illustrate a concept:</p>
+            <p><em>In-text:</em> Figure 1 illustrates the cyclical nature of poverty (AI-generated image, 2025).<br>
+            <em>Reference List:</em>  
+            OpenAI, 2025. ‘Image generated by DALL·E 3 based on prompt: “Diagram showing intergenerational poverty cycle in South African townships”’. Available at:   https://openai.com/dalle   (Accessed: 15 September 2025).</p>
+        </div>
+
+        <div id="plagiarism" class="section">
+            <h2>⚠️ PLAGIARISM ALERT — READ CAREFULLY</h2>
+            <p class="highlight">This is an individual assignment. All submissions will be checked via Turnitin on clickUP. Paraphrasing without citation = plagiarism. Direct quotes require quotation marks + page number. Do not copy-paste from the articles. Your voice must drive the analysis.</p>
+        </div>
+
+        <div id="deadline" class="section">
+            <h2>📅 DEADLINE & WEIGHT</h2>
+            <p><strong>Due Date:</strong> 8–22 September 2025</p>
+            <p><strong>Weight:</strong> 30%</p>
+            <p><strong>Word Count:</strong> 850–1000 words (strict)</p>
+            <p><strong>Submission:</strong> Online via clickUP (Turnitin-enabled)</p>
+        </div>
+
+        <!-- NOTE-TAKING FIELD -->
+        <div id="notes" class="section">
+            <h2>📝 TAKE NOTES HERE (SAVE AS .TXT)</h2>
+            <p class="note-label">Copy and paste your draft reflections, article summaries, or critical thoughts below. When ready, tap “Save Notes” to download as a .txt file.</p>
+            <textarea id="notesField" class="note-field-container" placeholder="Start typing your notes here..."></textarea>
+            <button onclick="saveNotes()" style="display:block; margin:12px auto; padding:12px 20px; background:#003366; color:white; border:none; border-radius:6px; font-family:'Times New Roman', Times, serif; font-size:16px; cursor:pointer;">💾 Save Notes as .txt</button>
+            <p class="note-footer">💡 Tip: Copy/paste/save important notes. This field saves locally — no login needed.</p>
+        </div>
+
+        <script>
+            function saveNotes() {
+                const notes = document.getElementById('notesField').value;
+                if (!notes.trim()) {
+                    alert("No notes to save. Please type something first.");
+                    return;
+                }
+                const blob = new Blob([notes], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'ALL124_Assignment2_Notes.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                alert("Notes saved as 'ALL124_Assignment2_Notes.txt' on your device.");
+            }
+
+            // Auto-save notes every 30 seconds
+            setInterval(() => {
+                localStorage.setItem('all124_notes', document.getElementById('notesField').value);
+            }, 30000);
+
+            // Load saved notes on page load
+            window.addEventListener('load', () => {
+                const saved = localStorage.getItem('all124_notes');
+                if (saved) {
+                    document.getElementById('notesField').value = saved;
+                }
+            });
+
+            // Toggle navigation menu
+            function toggleMenu() {
+                const menu = document.getElementById('navMenu');
+                menu.classList.toggle('show');
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const menu = document.getElementById('navMenu');
+                const menuBtn = document.querySelector('.menu-btn');
+                if (!menuBtn.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.remove('show');
+                }
+            });
+
+            // Optional: Show install prompt on supported browsers
+            let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                // Optionally show a button to trigger install
+                const installBtn = document.createElement('button');
+                installBtn.textContent = '📲 Install ALL 124 APP';
+                installBtn.style.display = 'block';
+                installBtn.style.margin = '15px auto';
+                installBtn.style.padding = '10px 20px';
+                installBtn.style.backgroundColor = '#003366';
+                installBtn.style.color = 'white';
+                installBtn.style.border = 'none';
+                installBtn.style.borderRadius = '6px';
+                installBtn.style.fontFamily = '"Times New Roman", Times, serif';
+                installBtn.style.cursor = 'pointer';
+                installBtn.onclick = () => {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then(() => {
+                        deferredPrompt = null;
+                    });
+                };
+                document.querySelector('.container').appendChild(installBtn);
+            });
+        </script>
+
+        <!-- FOOTER WITH COUNTER, CONTACT & LECTURER ENCOURAGEMENT -->
+        <div class="footer">
+            <div class="counter-container">
+                <span class="counter-text">Let us make a win of this</span>
+                <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a9e02adba07728eaed8f7a1c78cb0e3e3c4f0030'></script>
+                <script type="text/javascript" src="  https://www.freevisitorcounters.com/en/home/counter/1392054/t/0  "></script>
+                <div class="counter-attribution">You are a winner. <a href="https://www.free-counters.org/  " target="_blank" style="color:#003366; text-decoration:none;">Free-Counters.org</a></div>
+            </div>
+
+            <p class="contact-info"><strong>Contact Dr Oscar Eybers (Course Coordinator) or your lecturers for support.</strong></p>
+        </div>
+
+    </div>
 </body>
 </html>
-
