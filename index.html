@@ -3,47 +3,967 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alternative to MCQ Literacy Tests</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>What is academic literacy? A theory.</title>
+    <meta name="description" content="Discover how academic literacy shapes identity, power, and meaning-making—featuring frameworks, real-world applications, and decolonial insights.">
+    <meta name="keywords" content="Multimodal decolonised academic literacy, ubuntu philosophy in education, educational theory and literacy, multiliteracies, multimodal communication, decolonisation, ubunty philosophy, educational theory, linguistics, language and identity">
+    <meta name="author" content="Dr Oscar Eybers">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-purple: #6a11cb;
-            --secondary-aqua: #00b4d8;
-            --accent-purple: #9c27b0;
-            --light-aqua: #b2ebf2;
-            --dark-aqua: #0097a7;
-            --light-purple: #e1bee7;
-            --dark-purple: #4a148c;
-            --card-shadow: 0 8px 16px rgba(106, 17, 203, 0.15);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--light-aqua) 0%, #e3f2fd 100%);
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            min-height: 100vh;
+        :root {
+            --primary: #4fc3f7;
+            --secondary: #29b6f6;
+            --accent: #0288d1;
+            --dark: #0a0a14;
+            --darker: #050508;
+            --light: #f0f0f0;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --lighter-accent: #81d4fa;
+            --royal-blue: #4169E1;
+            --royal-blue-light: #6c8eff;
+            --aqua-blue: #00FFFF;
+            --card-padding: 20px;
+            --card-gap: 25px;
+            --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
+            --gold-aqua-reverse: linear-gradient(90deg, #00FFFF, #FFD700);
+            /* Sun variables */
+            --sun-color: #FFC107;
+            --sun-glow: #FFA000;
+            --sun-ray-color: #FFD700;
+            /* Header heights for scroll margin - Mobile optimized */
+            --top-header-height: 70px;
+            --top-header-height-sm: 140px; /* Increased for mobile to prevent overlap */
+            --digital-purple: #e040fb;
         }
-        
-        .container {
-            max-width: 1200px;
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(41, 182, 246, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(2, 136, 209, 0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -2;
+        }
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        /* Top header with title - Mobile optimized */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(10, 10, 20, 0.95);
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            min-height: var(--top-header-height);
+        }
+        /* Header title container with pyramids */
+        .header-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        /* Pyramid styling */
+        .pyramid {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid #FFD700;
+            position: relative;
+            animation: pyramidGlow 3s infinite alternate;
+        }
+        .pyramid::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: -12px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 20px solid rgba(255, 215, 0, 0.7);
+        }
+        .pyramid::after {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: -8px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 15px solid rgba(255, 215, 0, 0.4);
+        }
+        @keyframes pyramidGlow {
+            0% { 
+                filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+            }
+            100% { 
+                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
+            }
+        }
+        .top-header h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 6px rgba(207, 64, 255, 0.6);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            animation: pulseText 3s infinite alternate;
+            text-align: center;
+        }
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 6px rgba(207, 64, 255, 0.6); }
+            100% { text-shadow: 0 0 12px rgba(207, 64, 255, 0.8), 0 0 18px rgba(207, 64, 255, 0.6); }
+        }
+        /* Eybers Links in Header - Mobile optimized */
+        .eybers-header-links {
+            position: relative;
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .eybers-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .eybers-link:hover {
+            background: var(--gold-aqua);
+            color: #000;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+       /* Dropdown Styles - Mobile optimized */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .dropdown-toggle {
+            color: var(--digital-purple);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(65, 105, 225, 0.1);
+            border: 1px solid var(--royal-blue);
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 0 5px rgba(207, 64, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 45px;
+            line-height: 1.2;
+        }
+        .dropdown-toggle:hover,
+        .dropdown.active .dropdown-toggle {
+            background: rgba(65, 105, 225, 0.3);
+            box-shadow: 0 0 12px rgba(65, 105, 225, 0.6);
+            transform: translateY(-2px);
+            color: var(--light);
+            border-color: var(--royal-blue-light);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 20, 0.95);
+            border: 1px solid var(--royal-blue);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1002; /* Increased from 1001 to 1002 */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            backdrop-filter: blur(5px);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .dropdown-menu li {
+            width: 100%;
+        }
+        .dropdown-menu a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 10px 12px;
+            display: block;
+            transition: background-color 0.2s ease;
+            font-size: 0.75rem;
+            border-bottom: 1px solid rgba(207, 64, 255, 0.1);
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        .dropdown-menu a:hover {
+            background-color: rgba(65, 105, 225, 0.2);
+            color: var(--light);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+        .dropdown.active .dropdown-icon {
+            transform: rotate(180deg);
+        }
+        .dropdown-icon {
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+        /* Left tabs container - Repositioned for mobile */
+        .left-tabs-container {
+            position: fixed;
+            top: calc(var(--top-header-height) + 10px);
+            left: 10px;
+            z-index: 1001;
+            display: flex;
+            gap: 8px;
+        }
+        .back-button-tab, .contact-button-tab {
+            z-index: 1001;
+            background: rgba(20, 20, 30, 0.9);
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 8px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .back-button-tab:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateX(-3px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        .contact-button-tab:hover {
+            background: rgba(65, 105, 225, 0.2);
+            transform: translateX(3px);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        /* Main container */
+        .main-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: var(--top-header-height) auto 0;
+            margin-top: calc(var(--top-header-height) + 20px);
+        }
+        /* Top navigation links */
+        .top-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+            margin-top: 60px; /* Space for left tabs */
+        }
+        /* Header with Sun Integration */
+        header {
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            margin-bottom: 20px;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7),
+                transparent);
+            animation: headerShine 8s infinite linear;
+            z-index: -1;
+        }
+        @keyframes headerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        /* Sun container */
+        .sun-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        .sun-core {
+            width: 80px;
+            height: 80px;
+            background: var(--sun-color);
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px 8px var(--sun-glow);
+            animation: sun-pulse 8s infinite ease-in-out;
+        }
+        .sun-rays {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            z-index: 1;
+            background: repeating-conic-gradient(from 0deg, var(--sun-ray-color) 0deg 3deg, transparent 3deg 20deg);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: ray-rotate 20s infinite linear, ray-pulse 4s infinite ease-in-out;
+            box-shadow: 0 0 15px 4px var(--sun-ray-color);
+        }
+        @keyframes sun-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        @keyframes ray-rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes ray-pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.6; }
+        }
+        /* Header content */
+        .header-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
             margin: 0 auto;
         }
+        /* Contact card styles */
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(207, 64, 255, 0.2);
+            border-radius: 11.25px;
+            padding: 25px;
+            max-width: 800px;
+            margin: 20px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(207, 64, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--digital-purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            z-index: 1;
+            border-radius: 11.25px 11.25px 0 0;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(207, 64, 255, 0.4);
+        }
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+        .contact-card h2 {
+            color: var(--digital-purple);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .contact-card p {
+            color: #ddd;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        /* Card Styles */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--card-gap);
+            margin: 25px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(207, 64, 255, 0.2);
+            border-radius: 12px;
+            padding: var(--card-padding);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(207, 64, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 500px;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--digital-purple), var(--royal-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(207, 64, 255, 0.3);
+        }
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        .card__header {
+            padding-bottom: 8px;
+        }
+        .card__title {
+            color: var(--digital-purple);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card__body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center 30%;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 2px solid rgba(207, 64, 255, 0.3);
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+        }
+        .card:hover .card__image {
+            transform: scale(1.02);
+        }
+        .card__quote {
+            background: rgba(207, 64, 255, 0.15);
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(207, 64, 255, 0.3);
+            margin: 12px 0;
+            position: relative;
+            padding-left: 35px;
+        }
+        .card__quote i {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        .card__meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0;
+        }
+        .tag {
+            background: rgba(207, 64, 255, 0.15);
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(207, 64, 255, 0.3);
+        }
+        .card__footer {
+            background: rgba(207, 64, 255, 0.08);
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
+            padding: 10px 12px;
+            border-radius: 0 0 8px 8px;
+            font-size: 0.8rem;
+            color: var(--lighter-accent);
+            margin-top: 12px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            scroll-margin-top: calc(var(--top-header-height) + 10px);
+        }
+        .section-title {
+            color: var(--digital-purple);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(207, 64, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+        .copyright {
+            text-align: center;
+            padding: 25px 0;
+            color: #777;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(207, 64, 255, 0.2);
+            margin-top: 30px;
+        }
+        .centered-card {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+        }
+        .centered-card > .card {
+            max-width: 700px;
+            width: 100%;
+        }
+        #freeCounter {
+            text-align: center;
+            padding: 15px 0;
+            margin: 15px auto;
+            max-width: 600px;
+            background: rgba(20, 20, 30, 0.7);
+            border: 1px solid rgba(207, 64, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(207, 64, 255, 0.15);
+        }
+        #freeCounter a {
+            color: var(--digital-purple);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+        #freeCounter a:hover {
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(207, 64, 255, 0.8);
+        }
+        .eybers-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .eybers-footer-link {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        .eybers-footer-link:hover {
+            background: var(--gold-aqua);
+            color: #000;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        /* Responsive Design - Mobile specific fixes */
+        @media (max-width: 1200px) {
+            .top-nav {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 1100px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            .top-nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .top-header h1 {
+                font-size: 1.3rem;
+            }
+            header {
+                min-height: 200px;
+            }
+            .sun-container {
+                width: 180px;
+                height: 180px;
+            }
+            .sun-core {
+                width: 70px;
+                height: 70px;
+            }
+            .sun-rays {
+                width: 180px;
+                height: 180px;
+            }
+            /* Reduce pyramid size on tablets */
+            .pyramid {
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 20px solid #FFD700;
+            }
+            .pyramid::before {
+                top: 20px;
+                left: -10px;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 16px solid rgba(255, 215, 0, 0.7);
+            }
+            .pyramid::after {
+                top: 36px;
+                left: -6px;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 12px solid rgba(255, 215, 0, 0.4);
+            }
+        }
+        @media (max-width: 768px) {
+            .top-nav {
+                gap: 10px;
+            }
+            .dropdown-toggle {
+                padding: 10px;
+                font-size: 0.75rem;
+                min-height: 50px;
+            }
+            .card__image {
+                 height: 160px;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            /* Mobile header adjustments */
+            .top-header {
+                min-height: var(--top-header-height-sm);
+                padding: 15px 8px;
+            }
+            .top-header h1 {
+                font-size: 1.1rem;
+                max-width: 90%;
+                margin-bottom: 8px;
+            }
+            .eybers-header-links {
+                gap: 8px;
+                margin-top: 5px;
+            }
+            .eybers-link {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+            /* Adjust header title container for mobile */
+            .header-title-container {
+                gap: 15px;
+            }
+            /* Further reduce pyramid size on mobile */
+            .pyramid {
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 16px solid #FFD700;
+            }
+            .pyramid::before {
+                top: 16px;
+                left: -8px;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 12px solid rgba(255, 215, 0, 0.7);
+            }
+            .pyramid::after {
+                top: 28px;
+                left: -5px;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 10px solid rgba(255, 215, 0, 0.4);
+            }
+            /* Left tabs repositioning for mobile */
+            .left-tabs-container {
+                top: calc(var(--top-header-height-sm) + 5px);
+                left: 8px;
+                gap: 6px;
+                flex-direction: row;
+            }
+            .back-button-tab, .contact-button-tab {
+                padding: 5px 8px;
+                font-size: 0.65rem;
+                gap: 4px;
+            }
+            /* Main container spacing - CRITICAL FIX */
+            .main-container {
+                margin-top: calc(var(--top-header-height-sm) + 55px);
+            }
+            /* Top navigation spacing - CRUCIAL FIX */
+            .top-nav {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 0 8px;
+                margin-top: 90px; /* Increased from 80px to 90px to prevent overlap */
+            }
+            .dropdown-toggle {
+                padding: 12px 8px;
+                font-size: 0.8rem;
+                min-height: 48px;
+            }
+            /* Sun adjustments */
+            .sun-container {
+                width: 150px;
+                height: 150px;
+            }
+            .sun-core {
+                width: 60px;
+                height: 60px;
+                box-shadow: 0 0 15px 6px var(--sun-glow);
+            }
+            .sun-rays {
+                width: 150px;
+                height: 150px;
+                box-shadow: 0 0 12px 3px var(--sun-ray-color);
+            }
+            header {
+                min-height: 180px;
+            }
+            .contact-card {
+                padding: 20px;
+                margin: 15px auto;
+            }
+            .contact-card h2 {
+                font-size: 1.2rem;
+            }
+            .contact-card p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .card__title {
+                font-size: 1rem;
+            }
+            .content-section {
+                scroll-margin-top: calc(var(--top-header-height-sm) + 10px);
+            }
+            #freeCounter {
+                padding: 12px;
+                font-size: 0.8rem;
+            }
+            .card {
+                min-height: 450px;
+            }
+            .card__image {
+                height: 140px;
+            }
+            .eybers-footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .top-header {
+                padding: 12px 5px;
+            }
+            .top-header h1 {
+                font-size: 1rem;
+                max-width: 95%;
+            }
+            .eybers-link {
+                font-size: 0.65rem;
+                padding: 3px 6px;
+            }
+            .back-button-tab, .contact-button-tab {
+                padding: 4px 6px;
+                font-size: 0.6rem;
+            }
+            .card {
+                min-height: 400px;
+            }
+            .card__image {
+                height: 120px;
+            }
+            .card__title {
+                font-size: 0.95rem;
+            }
+            .contact-card h2 {
+                font-size: 1.1rem;
+            }
+            .contact-card p {
+                font-size: 0.95rem;
+            }
+            .top-nav {
+                margin-top: 95px; /* Increased from 85px to 95px for very small screens */
+            }
+        }
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #caption {
+            color: #f0f0f0;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            padding: 0 20px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .card__image-caption {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--lighter-accent);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        /* Mobile touch improvements */
+        @media (hover: none) {
+            .back-button-tab, .contact-button-tab {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            .dropdown-toggle {
+                padding: 14px 10px;
+            }
+        }
         
+        /* New styles for the Alternative to MCQ page */
         .main-title {
             text-align: center;
             margin: 25px 0;
-            color: var(--dark-purple);
+            color: var(--digital-purple);
             font-size: 2.2rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            background: linear-gradient(to right, var(--primary-purple), var(--accent-purple));
+            background: linear-gradient(to right, var(--royal-blue), var(--digital-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             padding: 15px 0;
@@ -58,9 +978,10 @@
         }
         
         .card {
-            background: white;
+            background: var(--card-bg);
+            border: 1px solid rgba(207, 64, 255, 0.2);
             border-radius: 16px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 8px 16px rgba(106, 17, 203, 0.15);
             overflow: hidden;
             width: 100%;
             max-width: 550px;
@@ -72,11 +993,11 @@
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(106, 17, 203, 0.2);
+            box-shadow: 0 12px 24px rgba(207, 64, 255, 0.2);
         }
         
         .card-header {
-            background: linear-gradient(to right, var(--primary-purple), var(--secondary-aqua));
+            background: linear-gradient(to right, var(--royal-blue), var(--aqua-blue));
             color: white;
             padding: 20px 25px;
             position: relative;
@@ -119,7 +1040,7 @@
         .subsection {
             margin-bottom: 25px;
             padding-bottom: 20px;
-            border-bottom: 1px dashed var(--light-aqua);
+            border-bottom: 1px dashed rgba(207, 64, 255, 0.2);
         }
         
         .subsection:last-child {
@@ -130,13 +1051,13 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: var(--primary-purple);
+            color: var(--royal-blue);
             margin-bottom: 12px;
             font-size: 1.3rem;
         }
         
         .subsection-title i {
-            color: var(--secondary-aqua);
+            color: var(--aqua-blue);
             background: rgba(0, 180, 216, 0.1);
             width: 36px;
             height: 36px;
@@ -147,7 +1068,7 @@
         }
         
         .subsection p {
-            color: #444;
+            color: #ddd;
             line-height: 1.7;
         }
         
@@ -158,7 +1079,7 @@
         }
         
         .limitation-card {
-            background: var(--light-purple);
+            background: rgba(65, 105, 225, 0.1);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
@@ -172,19 +1093,19 @@
         }
         
         .limitation-card i {
-            color: var(--dark-purple);
+            color: var(--royal-blue);
             font-size: 2.2rem;
             margin-bottom: 15px;
         }
         
         .limitation-card h4 {
-            color: var(--primary-purple);
+            color: var(--royal-blue);
             margin-bottom: 10px;
             font-size: 1.2rem;
         }
         
         .limitation-card p {
-            color: #555;
+            color: #ddd;
             font-size: 0.95rem;
         }
         
@@ -200,91 +1121,324 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="main-title">Alternative to MCQ Literacy Tests</h1>
-        
-        <div class="cards-container">
-            <!-- First Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h2><i class="fas fa-lightbulb"></i> Alternatives to MCQ</h2>
-                    <span class="academic-literacy-tag">Academic literacy: identity, disciplinary knowledge & empowering tool</span>
+    <div class="grid-lines"></div>
+    <!-- Top header with title and pyramids -->
+    <div class="top-header">
+        <div class="header-title-container">
+            <div class="pyramid"></div>
+            <h1>Academic Literacy Hub</h1>
+            <div class="pyramid"></div>
+        </div>
+        <div class="eybers-header-links">
+            <a href="https://oeybers-cpu.github.io/oe_research/" class="eybers-link">Eybers Articles</a>
+            <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-link">Eybers Chapters</a>
+        </div>
+    </div>
+    <!-- Container for left tabs (back and contact) -->
+    <div class="left-tabs-container">
+        <a href="#" class="back-button-tab" id="backButton">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+        </a>
+        <a href="https://oeybers-cpu.github.io/contact/" class="contact-button-tab" id="contactButton">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+        </a>
+    </div>
+    <div class="main-container">
+       <!-- Top Navigation Links -->
+        <div class="top-nav">
+            <!-- Dropdown 1: Foundational Models & Theories -->
+            <div class="dropdown">
+                <div class="dropdown-toggle">
+                    Foundational Models & Theories <i class="fas fa-chevron-down dropdown-icon"></i>
                 </div>
-                <div class="card-content">
-                    <div class="subsection" id="formative-assessment">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-comments"></i>
-                            Formative and Dialogic Assessment
-                        </h3>
-                        <p>GenAI tools enable interactive questioning, explanations, and iterative learning feedback, fostering students' ability to critically assess AI-generated outputs and develop higher-order cognitive skills rather than rote memorisation typical of MCQs.</p>
-                    </div>
-                    
-                    <div class="subsection" id="enhanced-authenticity">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-puzzle-piece"></i>
-                            Enhanced Assessment Authenticity and Complexity
-                        </h3>
-                        <p>Unlike MCQs that often test recall or test-taking skills, GenAI assessments incorporate open-ended, personalised tasks demanding interpretation, synthesis, and constructive use of information in academic literacy contexts.</p>
-                    </div>
-                    
-                    <div class="subsection" id="evaluative-judgment">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-balance-scale"></i>
-                            Development of Evaluative Judgment
-                        </h3>
-                        <p>Using GenAI in formative tasks helps students build skills to evaluate and judge information and AI outputs, which MCQs cannot provide detailed feedback on.</p>
-                    </div>
-                    
-                    <div class="subsection" id="customisation">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-cogs"></i>
-                            Customisation and Scaffolding
-                        </h3>
-                        <p>GenAI can tailor tasks, provide scaffolding, and guide students through complex literacy tasks, enabling differentiated learning support that MCQs are unable to offer.</p>
-                    </div>
-                    
-                    <div class="subsection" id="innovative-design">
-                        <h3 class="subsection-title">
-                            <i class="fas fa-lightbulb"></i>
-                            Innovative Assessment Design
-                        </h3>
-                        <p>Educators leverage GenAI to create assessments that evaluate multiliteracies and multimodal academic skills more effectively than MCQs, which are limited in assessing multidimensional competencies.</p>
-                    </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://www.researchgate.net/publication/47343136_The_Academic_Literacies_Model_Theorey_and_Applications" target="_blank">Theory and applications (Lea & Street's model)</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/sociocultural/" target="_blank">Sociocultural academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/autonomous_model/" target="_blank">Autonomous literacy model</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/multimodal_grammar/" target="_blank">Multimodal academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/disciplinary_semiotics/" target="_blank">Literacy and disciplinary semiotics</a></li>
+                </ul>
+            </div>
+            <!-- Dropdown 2: Indigenous & Cultural Perspectives -->
+            <div class="dropdown">
+                <div class="dropdown-toggle">
+                    Indigenous & Cultural Perspectives <i class="fas fa-chevron-down dropdown-icon"></i>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://oeybers-cpu.github.io/ubuntu/" target="_blank">Ubuntu and academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/pre_colonial/" target="_blank">Pre-colonial academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Imhotep/" target="_blank">Imhotep and academic literacy</a></li>
+                    <li><a href="https://www.researchgate.net/publication/388081527_An_Inclusive_African_Theory_of_Academic_Literacy?_sg%5B0%5D=EiaCcsbFh-Gasaxs08kAMgbpw60A8RjJwcbnA6HgjUHCVECVxF9kFgDcdkYHthDXWxYHAokIuEFyJIRLlJL35LtAyLAM-NGHAhkxc_0j.Sg0hBb14hVdyhUBRJCcvw2KmyxTJTyNrhJ3CyRBDF4lqF2eKx_Bbbe5jDojSwmf4n5e8CyQJFN1W6UhoZFkG3w&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il_kaXJlY3QiLCJwYWdlIjoicHJvZmlsZSIsInByZXZpb3VzUGFnZSI6InByb2ZpbGUiLCJwb3NpdGlvbiI6InBhZ2VDb250ZW50In19" target="_blank">African theory of academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/Achebe/" target="_blank">Achebe and academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ngugi/" target="_blank">Wa Thiong'o and academic literacy</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/ancient_writers/" target="_blank">Ancient African Writing</a></li>
+                    <li><a href="https://oeybers-cpu.github.io/visual_semiotics/" target="_blank">African art semiotics</a></li>
+                </ul>
+            </div>
+          <!-- Dropdown 3: Applications & Interdisciplinary Connections -->
+<div class="dropdown">
+    <div class="dropdown-toggle">
+        Applications & Interdisciplinary Connections <i class="fas fa-chevron-down dropdown-icon"></i>
+    </div>
+    <ul class="dropdown-menu">
+        <li><a href="https://oeybers-cpu.github.io/AL_econ/" target="_blank">Academic literacy and economic empowerment</a></li>
+        <li><a href="https://oeybers-cpu.github.io/knowledge_structures/" target="_blank">Bernstein's Knowledge Structures</a></li>
+        <li><a href="https://oeybers-cpu.github.io/whatisacademicliteracy-/" target="_blank">Academic literacy as ontology</a></li>
+    </ul>
+</div>
+        </div>
+        <header>
+            <!-- Digital Sun -->
+            <div class="sun-container">
+                <div class="sun-core"></div>
+                <div class="sun-rays"></div>
+            </div>
+            <div class="header-content">
+                <div class="contact-card">
+                    <h2><i class="fas fa-graduation-cap" aria-hidden="true"></i> Key Finding</h2>
+                    <p>"Academic literacies foreground meaning-making, identity, power, and authority in writing, moving beyond skills and socialisation models."</p>
                 </div>
             </div>
+        </header>
+        <div class="content-section">
+            <h1 class="main-title">Alternative to MCQ Literacy Tests</h1>
             
-            <!-- Second Card -->
-            <div class="card">
-                <div class="card-header">
-                    <h2><i class="fas fa-exclamation-circle"></i> Limitations of MCQs</h2>
-                    <span class="academic-literacy-tag">Academic literacy: identity, disciplinary knowledge & empowering tool</span>
+            <div class="cards-container">
+                <!-- First Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-lightbulb"></i> Alternatives to MCQ</h2>
+                        <span class="academic-literacy-tag">Academic literacy: identity, disciplinary knowledge & empowering tool</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="subsection" id="formative-assessment">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-comments"></i>
+                                Formative and Dialogic Assessment
+                            </h3>
+                            <p>GenAI tools enable interactive questioning, explanations, and iterative learning feedback, fostering students' ability to critically assess AI-generated outputs and develop higher-order cognitive skills rather than rote memorisation typical of MCQs.</p>
+                        </div>
+                        
+                        <div class="subsection" id="enhanced-authenticity">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-puzzle-piece"></i>
+                                Enhanced Assessment Authenticity and Complexity
+                            </h3>
+                            <p>Unlike MCQs that often test recall or test-taking skills, GenAI assessments incorporate open-ended, personalised tasks demanding interpretation, synthesis, and constructive use of information in academic literacy contexts.</p>
+                        </div>
+                        
+                        <div class="subsection" id="evaluative-judgment">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-balance-scale"></i>
+                                Development of Evaluative Judgment
+                            </h3>
+                            <p>Using GenAI in formative tasks helps students build skills to evaluate and judge information and AI outputs, which MCQs cannot provide detailed feedback on.</p>
+                        </div>
+                        
+                        <div class="subsection" id="customisation">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-cogs"></i>
+                                Customisation and Scaffolding
+                            </h3>
+                            <p>GenAI can tailor tasks, provide scaffolding, and guide students through complex literacy tasks, enabling differentiated learning support that MCQs are unable to offer.</p>
+                        </div>
+                        
+                        <div class="subsection" id="innovative-design">
+                            <h3 class="subsection-title">
+                                <i class="fas fa-lightbulb"></i>
+                                Innovative Assessment Design
+                            </h3>
+                            <p>Educators leverage GenAI to create assessments that evaluate multiliteracies and multimodal academic skills more effectively than MCQs, which are limited in assessing multidimensional competencies.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <div class="limitations-grid">
-                        <div class="limitation-card">
-                            <i class="fas fa-brain"></i>
-                            <h4>Memorisation Focus</h4>
-                            <p>Promote memorisation or factual recall over deep understanding</p>
-                        </div>
-                        <div class="limitation-card">
-                            <i class="fas fa-comment-slash"></i>
-                            <h4>Limited Feedback</h4>
-                            <p>Provide limited feedback, typically only right or wrong</p>
-                        </div>
-                        <div class="limitation-card">
-                            <i class="fas fa-clipboard-check"></i>
-                            <h4>Test-Taking Skills</h4>
-                            <p>Test test-taking skills rather than true comprehension</p>
-                        </div>
-                        <div class="limitation-card">
-                            <i class="fas fa-layer-group"></i>
-                            <h4>Higher-Order Thinking</h4>
-                            <p>Ineffective in measuring higher-order thinking or multiliteracies</p>
+                
+                <!-- Second Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-exclamation-circle"></i> Limitations of MCQs</h2>
+                        <span class="academic-literacy-tag">Academic literacy: identity, disciplinary knowledge & empowering tool</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="limitations-grid">
+                            <div class="limitation-card">
+                                <i class="fas fa-brain"></i>
+                                <h4>Memorisation Focus</h4>
+                                <p>Promote memorisation or factual recall over deep understanding</p>
+                            </div>
+                            <div class="limitation-card">
+                                <i class="fas fa-comment-slash"></i>
+                                <h4>Limited Feedback</h4>
+                                <p>Provide limited feedback, typically only right or wrong</p>
+                            </div>
+                            <div class="limitation-card">
+                                <i class="fas fa-clipboard-check"></i>
+                                <h4>Test-Taking Skills</h4>
+                                <p>Test test-taking skills rather than true comprehension</p>
+                            </div>
+                            <div class="limitation-card">
+                                <i class="fas fa-layer-group"></i>
+                                <h4>Higher-Order Thinking</h4>
+                                <p>Ineffective in measuring higher-order thinking or multiliteracies</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Embedded Visitor Counter -->
+        <div id="freeCounter">
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=98eaca31612f4331b0b8acd08eb43e530eb44597'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1386787/t/5"></script>
+            <br>
+            <a href='https://www.free-counters.org/'>Rethinking Academic Literacy</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Dr Oscar Eybers</p>
+            <div class="eybers-footer-links">
+                <a href="https://oeybers-cpu.github.io/oe_research/" class="eybers-footer-link">Eybers Articles</a>
+                <a href="https://oeybers-cpu.github.io/chapters/" class="eybers-footer-link">Eybers Chapters</a>
+            </div>
+            <a href="#" id="topLink" style="display: inline-block; margin-top: 8px; color: var(--digital-purple); text-decoration: none;">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
+            </a>
+        </div>
     </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    <script>
+        // Store the previous page URL and scroll position
+        let previousPage = document.referrer;
+        let scrollPosition = 0;
+        // Ensure DOM is fully loaded before attaching event handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close other dropdowns
+                    dropdowns.forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('active');
+                        }
+                    });
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            });
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            });
+            // Store scroll position when user scrolls
+            window.addEventListener('scroll', function() {
+                scrollPosition = window.scrollY;
+                // Store in sessionStorage for persistence
+                sessionStorage.setItem('scrollPosition', scrollPosition);
+            });
+            // Back button functionality - IMPROVED FOR MOBILE
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Check if we have a valid previous page
+                    if (previousPage && previousPage !== '' && previousPage !== window.location.href) {
+                        // Store the current scroll position before navigating back
+                        sessionStorage.setItem('scrollPosition', window.scrollY);
+                        sessionStorage.setItem('navigatedBack', 'true');
+                        // Navigate back to the previous page
+                        window.location.href = previousPage;
+                    } else if (history.length > 1) {
+                        // Use browser history if available
+                        history.back();
+                    } else {
+                        // Fallback to home page
+                        window.location.href = '/';
+                    }
+                });
+            }
+            // Check if we need to restore scroll position (when returning to this page)
+            if (sessionStorage.getItem('navigatedBack') === 'true') {
+                const savedPosition = sessionStorage.getItem('scrollPosition');
+                if (savedPosition) {
+                    // Small delay to ensure page is fully rendered
+                    setTimeout(() => {
+                        window.scrollTo(0, parseInt(savedPosition));
+                    }, 100);
+                }
+                // Clear the flag
+                sessionStorage.removeItem('navigatedBack');
+            }
+            // Top link functionality
+            const topLink = document.getElementById('topLink');
+            if (topLink) {
+                topLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    window.location.reload();
+                }, 300);
+            });
+            // Image Modal Functionality
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("caption");
+            // Get all images with class "card__image"
+            const images = document.querySelectorAll('.card__image');
+            // Add click event to each image
+            images.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    // Get caption from next element with class "card__image-caption"
+                    const caption = this.nextElementSibling;
+                    if (caption && caption.classList.contains('card__image-caption')) {
+                        captionText.innerHTML = caption.innerHTML;
+                    } else {
+                        captionText.innerHTML = this.alt;
+                    }
+                });
+            });
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close-modal")[0];
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+              modal.style.display = "none";
+            }
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            // Mobile-specific optimizations
+            if ('ontouchstart' in window) {
+                // Increase touch target sizes for mobile
+                document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab').forEach(el => {
+                    el.style.padding = '12px 15px';
+                });
+                // Prevent zoom on double-tap for interactive elements
+                document.querySelectorAll('.dropdown-toggle, .back-button-tab, .contact-button-tab, .card__image').forEach(el => {
+                    el.style.touchAction = 'manipulation';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
+taining the original academic literacy hub's design language and functionality.
