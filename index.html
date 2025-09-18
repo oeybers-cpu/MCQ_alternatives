@@ -4,88 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alternative to MCQ Literacy Tests</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-aqua: #00b4d8;
+            --accent-purple: #9c27b0;
+            --light-aqua: #b2ebf2;
+            --dark-aqua: #0097a7;
+            --light-purple: #e1bee7;
+            --dark-purple: #4a148c;
+            --card-shadow: 0 8px 16px rgba(106, 17, 203, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--light-aqua) 0%, #e3f2fd 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .main-title {
+            text-align: center;
+            margin: 25px 0;
+            color: var(--dark-purple);
+            font-size: 2.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, var(--primary-purple), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 15px 0;
+        }
+        
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            width: 100%;
+            max-width: 550px;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(106, 17, 203, 0.2);
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, var(--primary-purple), var(--secondary-aqua));
+            color: white;
+            padding: 20px 25px;
+            position: relative;
+        }
+        
+        .card-header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card-header i {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .academic-literacy-tag {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        
+        .subsection {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--light-aqua);
+        }
+        
+        .subsection:last-child {
+            border-bottom: none;
+        }
+        
+        .subsection-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary-purple);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .subsection-title i {
+            color: var(--secondary-aqua);
+            background: rgba(0, 180, 216, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .subsection p {
+            color: #444;
+            line-height: 1.7;
+        }
+        
+        .limitations-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        
+        .limitation-card {
+            background: var(--light-purple);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .limitation-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        .limitation-card i {
+            color: var(--dark-purple);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .limitation-card h4 {
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .limitation-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container {
+                flex-direction: column;
+            }
+            
+            .card {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1 class="main-title">Alternative to MCQ Literacy Tests</h1>
-        </header>
-
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Left Column - Navigation -->
-            <nav class="sidebar">
-                <div class="nav-section">
-                    <h3>Navigation</h3>
-                    <ul class="nav-links">
-                        <li><a href="#alternatives" class="nav-link">Alternatives to MCQ</a></li>
-                        <li><a href="#formative-assessment" class="nav-link">Formative Assessment</a></li>
-                        <li><a href="#enhanced-authenticity" class="nav-link">Enhanced Authenticity</a></li>
-                        <li><a href="#evaluative-judgment" class="nav-link">Evaluative Judgment</a></li>
-                        <li><a href="#customization" class="nav-link">Customization</a></li>
-                        <li><a href="#innovative-design" class="nav-link">Innovative Design</a></li>
-                        <li><a href="#limitations" class="nav-link">MCQ Limitations</a></li>
-                    </ul>
+        <h1 class="main-title">Alternative to MCQ Literacy Tests</h1>
+        
+        <div class="cards-container">
+            <!-- First Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-lightbulb"></i> Alternatives to MCQ</h2>
+                    <span class="academic-literacy-tag">Academic literacy: identity, disciplinary knowledge & empowering tool</span>
                 </div>
-            </nav>
-
-            <!-- Right Column - Content -->
-            <main class="content">
-                <section id="alternatives" class="content-section">
-                    <h2 class="section-title">Alternative Gen to MCQ</h2>
-                    <p class="section-intro">Generative AI offers several innovative alternatives to traditional multiple-choice questions in academic literacy assessment:</p>
-                    
-                    <div id="formative-assessment" class="subsection">
+                <div class="card-content">
+                    <div class="subsection" id="formative-assessment">
                         <h3 class="subsection-title">
                             <i class="fas fa-comments"></i>
                             Formative and Dialogic Assessment
                         </h3>
-                        <p>GenAI tools enable interactive questioning, explanations, and iterative learning feedback, fostering students' ability to critically assess AI-generated outputs and develop higher-order cognitive skills rather than rote memorization typical of MCQs.</p>
+                        <p>GenAI tools enable interactive questioning, explanations, and iterative learning feedback, fostering students' ability to critically assess AI-generated outputs and develop higher-order cognitive skills rather than rote memorisation typical of MCQs.</p>
                     </div>
-
-                    <div id="enhanced-authenticity" class="subsection">
+                    
+                    <div class="subsection" id="enhanced-authenticity">
                         <h3 class="subsection-title">
                             <i class="fas fa-puzzle-piece"></i>
                             Enhanced Assessment Authenticity and Complexity
                         </h3>
-                        <p>Unlike MCQs that often test recall or test-taking skills, GenAI assessments can incorporate open-ended, personalized tasks that demand interpretation, synthesis, and constructive use of information in academic literacy contexts.</p>
+                        <p>Unlike MCQs that often test recall or test-taking skills, GenAI assessments incorporate open-ended, personalised tasks demanding interpretation, synthesis, and constructive use of information in academic literacy contexts.</p>
                     </div>
-
-                    <div id="evaluative-judgment" class="subsection">
+                    
+                    <div class="subsection" id="evaluative-judgment">
                         <h3 class="subsection-title">
                             <i class="fas fa-balance-scale"></i>
                             Development of Evaluative Judgment
                         </h3>
-                        <p>Using GenAI in formative tasks helps students build skills to evaluate and judge information and AI outputs, which MCQs generally cannot provide detailed feedback on.</p>
+                        <p>Using GenAI in formative tasks helps students build skills to evaluate and judge information and AI outputs, which MCQs cannot provide detailed feedback on.</p>
                     </div>
-
-                    <div id="customization" class="subsection">
+                    
+                    <div class="subsection" id="customisation">
                         <h3 class="subsection-title">
                             <i class="fas fa-cogs"></i>
-                            Customization and Scaffolding
+                            Customisation and Scaffolding
                         </h3>
                         <p>GenAI can tailor tasks, provide scaffolding, and guide students through complex literacy tasks, enabling differentiated learning support that MCQs are unable to offer.</p>
                     </div>
-
-                    <div id="innovative-design" class="subsection">
+                    
+                    <div class="subsection" id="innovative-design">
                         <h3 class="subsection-title">
                             <i class="fas fa-lightbulb"></i>
                             Innovative Assessment Design
                         </h3>
-                        <p>Educators leverage GenAI to create assessments that assess multiliteracies and multimodal academic skills more effectively than MCQs, which are limited in assessing such multidimensional competencies.</p>
+                        <p>Educators leverage GenAI to create assessments that evaluate multiliteracies and multimodal academic skills more effectively than MCQs, which are limited in assessing multidimensional competencies.</p>
                     </div>
-                </section>
-
-                <section id="limitations" class="content-section">
-                    <h2 class="section-title">Limitations of MCQs in Academic Literacy</h2>
+                </div>
+            </div>
+            
+            <!-- Second Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-exclamation-circle"></i> Limitations of MCQs</h2>
+                    <span class="academic-literacy-tag">Academic literacy: identity, disciplinary knowledge & empowering tool</span>
+                </div>
+                <div class="card-content">
                     <div class="limitations-grid">
                         <div class="limitation-card">
                             <i class="fas fa-brain"></i>
-                            <h4>Memorization Focus</h4>
-                            <p>Promote memorization or factual recall over deep understanding</p>
+                            <h4>Memorisation Focus</h4>
+                            <p>Promote memorisation or factual recall over deep understanding</p>
                         </div>
                         <div class="limitation-card">
                             <i class="fas fa-comment-slash"></i>
@@ -103,11 +282,9 @@
                             <p>Ineffective in measuring higher-order thinking or multiliteracies</p>
                         </div>
                     </div>
-                </section>
-            </main>
+                </div>
+            </div>
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
