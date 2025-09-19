@@ -642,6 +642,25 @@
                 padding: 14px 10px;
             }
         }
+        /* New styling for bottom cards container */
+        .bottom-cards-container {
+            display: flex;
+            justify-content: center;
+            gap: var(--card-gap);
+            width: 100%;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .bottom-cards-container > .card {
+            width: 45%;
+            max-width: 700px;
+            min-height: 500px;
+        }
+        @media (max-width: 900px) {
+            .bottom-cards-container > .card {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -742,7 +761,6 @@
                         <img src="  https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/9a55aea0-a0b5-4049-80d6-868000791709/1758195906.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1OTA2IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.ywzMYlsrIERKCXMF_i7OJKFTKKsLdxt6HM8GdEyTyTc"
                              alt="Formative and dialogic assessment"
                              class="card__image">
-                    </div>
                         <p>Traditional MCQ assessments are summative by nature, offering little opportunity for learning during the evaluation process. In contrast, GenAI enables formative and dialogic assessment where evaluation becomes an integral part of the learning journey. Students can engage in iterative cycles of submission, feedback, and revision, with AI providing immediate, context-specific guidance that helps them refine their academic thinking and expression.</p>
                         <p>This dialogic approach transforms assessment from a judgmental exercise to a collaborative learning process. GenAI can ask probing questions, suggest alternative perspectives, and highlight connections between concepts—fostering the critical engagement that defines academic literacy. Rather than simply testing knowledge, it helps students develop the metacognitive skills necessary for scholarly work.</p>
                         <blockquote class="card__quote">
@@ -775,28 +793,28 @@
                     </div>
                 </div>
                 <!-- Card 6: Development of Evaluative Judgment -->
-                <div class="card">
-                    <div class="card__header">
-                        <h2 class="card__title">
-                            <i class="fas fa-balance-scale"></i> Cultivating Evaluative Judgment
-                        </h2>
-                    </div>
-                    <div class="card__body">
-                        <img src="https://www.tutordoctor.com/images/blog/iStock-532484317.jpg  "
-                             alt="Cultivating evaluative judgment"
-                             class="card__image">
-                        <p>MCQs provide no opportunity for students to develop evaluative judgment—the ability to critically assess quality, relevance, and credibility of information and arguments. GenAI, however, can facilitate assessment that develops this crucial academic skill. Students can interact with AI-generated content, evaluate its strengths and weaknesses, and refine their own work based on these evaluations.</p>
-                        <p>Through structured interactions with GenAI tools, students learn to identify logical fallacies, assess evidence quality, recognize bias, and evaluate the coherence of arguments. This metacognitive development is essential for academic literacy, as it prepares students to navigate the complex information landscape of scholarly discourse.</p>
-                        <blockquote class="card__quote">
-                            <i class="fas fa-quote-left" aria-hidden="true"></i> True academic literacy requires not just knowledge acquisition but the ability to critically evaluate knowledge claims and scholarly contributions.
-                        </blockquote>
-                        <div class="card__footer">
-                            Developing critical evaluation skills through GenAI assessment
+                <div class="bottom-cards-container">
+                    <div class="card">
+                        <div class="card__header">
+                            <h2 class="card__title">
+                                <i class="fas fa-balance-scale"></i> Cultivating Evaluative Judgment
+                            </h2>
+                        </div>
+                        <div class="card__body">
+                            <img src="https://www.tutordoctor.com/images/blog/iStock-532484317.jpg  "
+                                 alt="Cultivating evaluative judgment"
+                                 class="card__image">
+                            <p>MCQs provide no opportunity for students to develop evaluative judgment—the ability to critically assess quality, relevance, and credibility of information and arguments. GenAI, however, can facilitate assessment that develops this crucial academic skill. Students can interact with AI-generated content, evaluate its strengths and weaknesses, and refine their own work based on these evaluations.</p>
+                            <p>Through structured interactions with GenAI tools, students learn to identify logical fallacies, assess evidence quality, recognize bias, and evaluate the coherence of arguments. This metacognitive development is essential for academic literacy, as it prepares students to navigate the complex information landscape of scholarly discourse.</p>
+                            <blockquote class="card__quote">
+                                <i class="fas fa-quote-left" aria-hidden="true"></i> True academic literacy requires not just knowledge acquisition but the ability to critically evaluate knowledge claims and scholarly contributions.
+                            </blockquote>
+                            <div class="card__footer">
+                                Developing critical evaluation skills through GenAI assessment
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Centered final card -->
-                <div class="centered-card">
+                    <!-- Centered final card -->
                     <div class="card">
                         <div class="card__header">
                             <h2 class="card__title">
@@ -807,7 +825,7 @@
                             <img src="https://github.com/oeybers-cpu/MCQ_alternatives/blob/main/GenAI%20lab.png?raw=true"
                                  alt="The future of academic literacy assessment"
                                  class="card__image">
-                            <p>As we move beyond MCQ-based assessment, academic literacy evaluation must embrace multimodal, context-aware approaches that reflect the complexity of scholarly practice. GenAI offers powerful tools for this transformation, enabling assessment that values critical thinking, creative expression, and disciplinary engagement over rote memorization.</p>
+                            <p>MCQ assessments are fundamentally inadequate for measuring true academic literacy. They reduce complex, nuanced understanding to simplistic binary choices, ignoring the ability to synthesize information, construct arguments, and communicate effectively across multiple modalities. In contrast, multimodal assessment captures the true essence of academic work—where students engage with diverse forms of expression and critical analysis. This is not just an improvement; it's a necessary evolution to foster genuine scholarly competence and prepare students for the complexities of modern academia.</p>
                             <p>However, this transformation requires careful implementation. Educators must maintain oversight of AI-generated assessments to ensure academic integrity, address algorithmic bias, and preserve human judgment in the evaluation process. The goal is not to replace human assessment but to augment it with technology that expands our capacity to measure what truly matters in academic literacy.</p>
                             <blockquote class="card__quote">
                                 <i class="fas fa-quote-left" aria-hidden="true"></i> The future of academic literacy assessment lies in technology that enhances human judgment rather than replaces it, creating evaluation frameworks that reflect the richness of scholarly practice.
