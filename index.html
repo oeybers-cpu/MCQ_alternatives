@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <meta name="description" content="Scholarly critique of MCQ assessments and exploration of GenAI-powered multimodal alternatives for academic literacy evaluation">
     <meta name="keywords" content="academic literacy, MCQ limitations, GenAI assessment, multimodal assessment, formative assessment, evaluative judgment, educational technology">
     <meta name="author" content="Dr Oscar Eybers">
-    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css  ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -31,13 +32,11 @@
             --card-gap: 25px;
             --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
             --gold-aqua-reverse: linear-gradient(90deg, #00FFFF, #FFD700);
-            /* Sun variables */
             --sun-color: #FFC107;
             --sun-glow: #FFA000;
             --sun-ray-color: #FFD700;
-            /* Header heights for scroll margin - Mobile optimized */
             --top-header-height: 70px;
-            --top-header-height-sm: 140px; /* Increased for mobile to prevent overlap */
+            --top-header-height-sm: 140px;
             --digital-purple: #6a11cb;
         }
         body {
@@ -77,7 +76,6 @@
             pointer-events: none;
             z-index: -1;
         }
-        /* Top header with title - Mobile optimized */
         .top-header {
             position: fixed;
             top: 0;
@@ -94,7 +92,6 @@
             backdrop-filter: blur(10px);
             min-height: var(--top-header-height);
         }
-        /* Header title container with pyramids */
         .header-title-container {
             display: flex;
             align-items: center;
@@ -103,7 +100,6 @@
             width: 100%;
             max-width: 800px;
         }
-        /* Pyramid styling */
         .pyramid {
             width: 0;
             height: 0;
@@ -161,7 +157,6 @@
             0% { text-shadow: 0 0 6px rgba(106, 17, 203, 0.6); }
             100% { text-shadow: 0 0 12px rgba(106, 17, 203, 0.8), 0 0 18px rgba(106, 17, 203, 0.6); }
         }
-        /* Home Link in Header */
         .header-home-link {
             position: absolute;
             top: 15px;
@@ -185,17 +180,14 @@
             border-color: var(--royal-blue-light);
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
         }
-        /* Main container */
         .main-container {
             width: 100%;
             max-width: 1400px;
-            margin: var(--top-header-height) auto 0;
-            margin-top: calc(var(--top-header-height) + 20px);
+            margin: calc(var(--top-header-height) + 20px) auto 0;
         }
-        /* Card Styles */
         .articles-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--card-gap);
             margin: 25px 0;
         }
@@ -261,19 +253,7 @@
             border: 2px solid rgba(106, 17, 203, 0.3);
             transition: transform 0.3s ease;
         }
-        /* New additional image styling for Card 1 */
-        .card__additional-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 8px;
-            margin: 10px 0;
-            border: 1px solid rgba(106, 17, 203, 0.2);
-            transition: transform 0.3s ease;
-        }
-        .card:hover .card__image,
-        .card:hover .card__additional-image {
+        .card:hover .card__image {
             transform: scale(1.02);
         }
         .card__quote {
@@ -338,17 +318,6 @@
             border-top: 1px solid rgba(106, 17, 203, 0.2);
             margin-top: 30px;
         }
-        .centered-card {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        .centered-card > .card {
-            max-width: 700px;
-            width: 100%;
-        }
-        /* Footer home and top buttons */
         .footer-buttons {
             display: flex;
             justify-content: center;
@@ -370,7 +339,6 @@
             color: #000;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
         }
-        /* Responsive Design - Mobile specific fixes */
         @media (max-width: 1200px) {
             .articles-container {
                 grid-template-columns: repeat(2, 1fr);
@@ -383,20 +351,6 @@
             .top-header h1 {
                 font-size: 1.3rem;
             }
-            /* Sun adjustments */
-            .sun-container {
-                width: 180px;
-                height: 180px;
-            }
-            .sun-core {
-                width: 70px;
-                height: 70px;
-            }
-            .sun-rays {
-                width: 180px;
-                height: 180px;
-            }
-            /* Reduce pyramid size on tablets */
             .pyramid {
                 border-left: 12px solid transparent;
                 border-right: 12px solid transparent;
@@ -438,19 +392,9 @@
                 max-width: 90%;
                 margin-bottom: 8px;
             }
-            .eybers-header-links {
-                gap: 8px;
-                margin-top: 5px;
-            }
-            .eybers-link {
-                font-size: 0.7rem;
-                padding: 4px 8px;
-            }
-            /* Adjust header title container for mobile */
             .header-title-container {
                 gap: 15px;
             }
-            /* Further reduce pyramid size on mobile */
             .pyramid {
                 border-left: 10px solid transparent;
                 border-right: 10px solid transparent;
@@ -470,62 +414,8 @@
                 border-right: 5px solid transparent;
                 border-bottom: 10px solid rgba(255, 215, 0, 0.4);
             }
-            /* Main container spacing - CRITICAL FIX */
             .main-container {
                 margin-top: calc(var(--top-header-height-sm) + 55px);
-            }
-            /* Top navigation spacing - CRUCIAL FIX */
-            .top-nav {
-                grid-template-columns: 1fr;
-                gap: 8px;
-                padding: 0 8px;
-                margin-top: 90px; /* Increased from 80px to 90px to prevent overlap */
-            }
-            .dropdown-toggle {
-                padding: 12px 8px;
-                font-size: 0.8rem;
-                min-height: 48px;
-            }
-            /* Sun adjustments */
-            .sun-container {
-                width: 150px;
-                height: 150px;
-            }
-            .sun-core {
-                width: 60px;
-                height: 60px;
-                box-shadow: 0 0 15px 6px var(--sun-glow);
-            }
-            .sun-rays {
-                width: 150px;
-                height: 150px;
-                box-shadow: 0 0 12px 3px var(--sun-ray-color);
-            }
-            header {
-                min-height: 180px;
-            }
-            .contact-card {
-                padding: 20px;
-                margin: 15px auto;
-            }
-            .contact-card h2 {
-                font-size: 1.2rem;
-            }
-            .contact-card p {
-                font-size: 1rem;
-            }
-            .section-title {
-                font-size: 1.2rem;
-            }
-            .card__title {
-                font-size: 1rem;
-            }
-            .content-section {
-                scroll-margin-top: calc(var(--top-header-height-sm) + 10px);
-            }
-            #freeCounter {
-                padding: 12px;
-                font-size: 0.8rem;
             }
             .card {
                 min-height: 450px;
@@ -533,13 +423,8 @@
             .card__image {
                 height: 140px;
             }
-            .card__additional-image {
-                height: 100px;
-            }
-            .eybers-footer-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .content-section {
+                scroll-margin-top: calc(var(--top-header-height-sm) + 10px);
             }
         }
         @media (max-width: 480px) {
@@ -550,114 +435,14 @@
                 font-size: 1rem;
                 max-width: 95%;
             }
-            .eybers-link {
-                font-size: 0.65rem;
-                padding: 3px 6px;
-            }
-            .back-button-tab, .contact-button-tab {
-                padding: 4px 6px;
-                font-size: 0.6rem;
-            }
             .card {
                 min-height: 400px;
             }
             .card__image {
                 height: 120px;
             }
-            .card__additional-image {
-                height: 80px;
-            }
             .card__title {
                 font-size: 0.95rem;
-            }
-            .contact-card h2 {
-                font-size: 1.1rem;
-            }
-            .contact-card p {
-                font-size: 0.95rem;
-            }
-            .top-nav {
-                margin-top: 95px; /* Increased from 85px to 95px for very small screens */
-            }
-        }
-        /* Image Modal Styles */
-        .image-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 80%;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        #caption {
-            color: #f0f0f0;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            padding: 0 20px;
-        }
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .card__image-caption {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--lighter-accent);
-            margin-top: 5px;
-            font-style: italic;
-        }
-        /* Mobile touch improvements */
-        @media (hover: none) {
-            .back-button-tab, .contact-button-tab {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-            .dropdown-toggle {
-                padding: 14px 10px;
-            }
-        }
-        /* New styling for bottom cards container */
-        .bottom-cards-container {
-            display: flex;
-            justify-content: center;
-            gap: var(--card-gap);
-            width: 100%;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-        .bottom-cards-container > .card {
-            width: 45%;
-            max-width: 700px;
-            min-height: 500px;
-        }
-        @media (max-width: 900px) {
-            .bottom-cards-container > .card {
-                width: 100%;
             }
         }
     </style>
@@ -671,7 +456,7 @@
             <h1>Alternative to MCQ Literacy Tests</h1>
             <div class="pyramid"></div>
         </div>
-        <a href="  https://oeybers-cpu.github.io/a_lit_models/  " class="header-home-link">Home</a>
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="header-home-link">Home</a>
     </div>
     <div class="main-container">
         <div class="content-section">
@@ -689,9 +474,6 @@
                              alt="Evolution of academic literacy assessment"
                              class="card__image">
                         <p>For decades, academic literacy has been assessed through standardized multiple-choice questions (MCQs), which prioritize recall over critical engagement. This approach emerged from industrial-era education models that valued efficiency and standardization. However, as academic discourse has evolved toward more complex, multimodal forms of knowledge production, MCQs have become increasingly inadequate for measuring true academic literacy.</p>
-                        <img src="  https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/d888aaab-7a04-47ea-9011-ca9ec7247795/1758198769.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk4NzY5IiwicmVzb3VyY2VfY2hhdF9pZCI6IjFmNDE2YWVkLTFiZWEtNGMyYS1iOGM4LTQxYzE0MDhkNDA2YyJ9.7yV4QIuRLO3_9NUHCV5DRbDl2sAu-0aMLDyqpsG7qY4" 
-                             alt="Academic literacy concept"
-                             class="card__additional-image">
                         <p>True academic literacy encompasses the ability to navigate disciplinary conventions, engage with complex texts, construct evidence-based arguments, and communicate effectively across multiple modalities. MCQs reduce this rich complexity to binary choices, failing to capture the depth of understanding required in contemporary academic environments.</p>
                         <blockquote class="card__quote">
                             <i class="fas fa-quote-left" aria-hidden="true"></i> Academic literacy cannot be reduced to discrete factual recall; it is a situated practice that requires engagement with context, purpose, and audience.
@@ -709,13 +491,10 @@
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="  https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/b0f5b0b0-117e-46d6-8d8d-b93fa9f37719/1758195039.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1MDM5IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.fp6GVMmMr2pcudgof3f6j0uu8situ6GYwRbrYikEosc"
+                        <img src="https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/b0f5b0b0-117e-46d6-8d8d-b93fa9f37719/1758195039.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny40MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1MDM5IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.fp6GVMmMr2pcudgof3f6j0uu8situ6GYwRbrYikEosc"
                              alt="Limitations of MCQ assessments"
                              class="card__image">
                         <p>Academic scholarship has consistently highlighted the limitations of MCQs for assessing academic literacy. Researchers note that MCQs primarily measure surface-level knowledge retention rather than deep understanding or critical thinking. They fail to capture the nuanced reasoning processes that characterize academic work, instead rewarding test-taking strategies over genuine comprehension.</p>
-                        <img src="  https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/6c5bd4cb-d6f1-49d1-82a9-ebce3e2af9c6/1758199317.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk5MzE3IiwicmVzb3VyY2VfY2hhdF9pZCI6IjFmNDE2YWVkLTFiZWEtNGMyYS1iOGM4LTQxYzE0MDhkNDA2YyJ9.VMFtDhFzcjz-I8WtlwEYXbmR0DL_7zLnBoHsMucvyVM" 
-                             alt="MCQ limitations illustration"
-                             class="card__additional-image">
                         <p>Studies show that MCQs disproportionately disadvantage students from diverse backgrounds who may have different approaches to knowledge construction. The format privileges certain cognitive styles while marginalizing others, reinforcing inequities in educational assessment. Furthermore, MCQs provide minimal feedback for learning, offering only correct/incorrect responses without guidance for improvement.</p>
                         <blockquote class="card__quote">
                             <i class="fas fa-quote-left" aria-hidden="true"></i> Standardized testing frameworks often measure what is easiest to test rather than what is most important for academic success.
@@ -733,13 +512,10 @@
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="  https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/a0a240fd-ef06-44e3-a13a-6f0e92b52334/1758195259.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1MjU5IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.rCGWyunPcS_iCDtZDfhx_8glCOMZTRgJ63uyPpHJUJ0"
+                        <img src="https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/a0a240fd-ef06-44e3-a13a-6f0e92b52334/1758195259.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny40MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1MjU5IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.rCGWyunPcS_iCDtZDfhx_8glCOMZTRgJ63uyPpHJUJ0"
                              alt="GenAI and multimodal assessment capabilities"
                              class="card__image">
                         <p>Generative AI offers transformative potential for academic literacy assessment by enabling multimodal evaluation that mirrors authentic academic practice. Unlike static MCQs, GenAI can analyze complex written arguments, interpret visual data, evaluate multimodal presentations, and provide nuanced feedback across diverse communication forms. This technology supports assessment that reflects how knowledge is actually produced and communicated in contemporary academic environments.</p>
-                        <img src="https://img.freepik.com/premium-photo/scribe-scholar-writing-hieroglyphics-papyrus-scroll-illustration_962764-67481.jpg?w=900" 
-                             alt="Imhotep, ancient Egyptian polymath and deity"
-                             class="card__additional-image">
                         <p>GenAI tools can assess the coherence of arguments, the quality of evidence, the appropriateness of disciplinary conventions, and the effectiveness of communication across multiple modalities. They can evaluate how students synthesize information from diverse sources, construct original arguments, and adapt their communication to specific academic contexts—capabilities far beyond what MCQs can measure.</p>
                         <blockquote class="card__quote">
                             <i class="fas fa-quote-left" aria-hidden="true"></i> GenAI assessment moves beyond measuring what students know to evaluating how they think, create, and communicate within academic discourse.
@@ -757,7 +533,7 @@
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="  https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/9a55aea0-a0b5-4049-80d6-868000791709/1758195906.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny00MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1OTA2IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.ywzMYlsrIERKCXMF_i7OJKFTKKsLdxt6HM8GdEyTyTc"
+                        <img src="https://cdn.qwenlm.ai/output/62c34064-0177-40cc-9f54-ee8eb19ce10b/t2i/9a55aea0-a0b5-4049-80d6-868000791709/1758195906.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiNjJjMzQwNjQtMDE3Ny40MGNjLTlmNTQtZWU4ZWIxOWNlMTBiIiwicmVzb3VyY2VfaWQiOiIxNzU4MTk1OTA2IiwicmVzb3VyY2VfY2hhdF9pZCI6IjI0OWY4YzFiLTk4NDUtNDA0OS1iZTFhLWE5YzJmYTg4M2I3NCJ9.ywzMYlsrIERKCXMF_i7OJKFTKKsLdxt6HM8GdEyTyTc"
                              alt="Formative and dialogic assessment"
                              class="card__image">
                         <p>Traditional MCQ assessments are summative by nature, offering little opportunity for learning during the evaluation process. In contrast, GenAI enables formative and dialogic assessment where evaluation becomes an integral part of the learning journey. Students can engage in iterative cycles of submission, feedback, and revision, with AI providing immediate, context-specific guidance that helps them refine their academic thinking and expression.</p>
@@ -778,7 +554,7 @@
                         </h2>
                     </div>
                     <div class="card__body">
-                        <img src="  https://thelearnwellprojects.com/wp-content/uploads/2018/09/iStock-842805372.jpg  "
+                        <img src="https://thelearnwellprojects.com/wp-content/uploads/2018/09/iStock-842805372.jpg"
                              alt="Authentic assessment through GenAI"
                              class="card__image">
                         <p>MCQ assessments often measure artificial constructs disconnected from real academic work. GenAI enables authentic assessment that mirrors the complex, multifaceted nature of scholarly practice. Students can create multimodal projects, engage in simulated academic discourse, and demonstrate their understanding through varied formats that reflect actual disciplinary conventions.</p>
@@ -792,46 +568,44 @@
                     </div>
                 </div>
                 <!-- Card 6: Development of Evaluative Judgment -->
-                <div class="bottom-cards-container">
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-balance-scale"></i> Cultivating Evaluative Judgment
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://www.tutordoctor.com/images/blog/iStock-532484317.jpg  "
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-balance-scale"></i> Cultivating Evaluative Judgment
+                        </h2>
+                    </div>
+                    <div class="card__body">
+                        <img src="https://www.tutordoctor.com/images/blog/iStock-532484317.jpg"
                                  alt="Cultivating evaluative judgment"
                                  class="card__image">
-                            <p>MCQs provide no opportunity for students to develop evaluative judgment—the ability to critically assess quality, relevance, and credibility of information and arguments. GenAI, however, can facilitate assessment that develops this crucial academic skill. Students can interact with AI-generated content, evaluate its strengths and weaknesses, and refine their own work based on these evaluations.</p>
-                            <p>Through structured interactions with GenAI tools, students learn to identify logical fallacies, assess evidence quality, recognize bias, and evaluate the coherence of arguments. This metacognitive development is essential for academic literacy, as it prepares students to navigate the complex information landscape of scholarly discourse.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> True academic literacy requires not just knowledge acquisition but the ability to critically evaluate knowledge claims and scholarly contributions.
-                            </blockquote>
-                            <div class="card__footer">
-                                Developing critical evaluation skills through GenAI assessment
-                            </div>
+                        <p>MCQs provide no opportunity for students to develop evaluative judgment—the ability to critically assess quality, relevance, and credibility of information and arguments. GenAI, however, can facilitate assessment that develops this crucial academic skill. Students can interact with AI-generated content, evaluate its strengths and weaknesses, and refine their own work based on these evaluations.</p>
+                        <p>Through structured interactions with GenAI tools, students learn to identify logical fallacies, assess evidence quality, recognize bias, and evaluate the coherence of arguments. This metacognitive development is essential for academic literacy, as it prepares students to navigate the complex information landscape of scholarly discourse.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> True academic literacy requires not just knowledge acquisition but the ability to critically evaluate knowledge claims and scholarly contributions.
+                        </blockquote>
+                        <div class="card__footer">
+                            Developing critical evaluation skills through GenAI assessment
                         </div>
                     </div>
-                    <!-- Centered final card -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h2 class="card__title">
-                                <i class="fas fa-globe-africa"></i> The Future of Academic Literacy Assessment
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <img src="https://github.com/oeybers-cpu/MCQ_alternatives/blob/main/GenAI%20lab.png?raw=true"
+                </div>
+                <!-- Card 7: The Future of Academic Literacy Assessment -->
+                <div class="card">
+                    <div class="card__header">
+                        <h2 class="card__title">
+                            <i class="fas fa-globe-africa"></i> The Future of Academic Literacy Assessment
+                        </h2>
+                    </div>
+                    <div class="card__body">
+                        <img src="https://github.com/oeybers-cpu/MCQ_alternatives/blob/main/GenAI%20lab.png?raw=true"
                                  alt="The future of academic literacy assessment"
                                  class="card__image">
-                            <p>MCQ assessments are fundamentally inadequate for measuring true academic literacy. They reduce complex, nuanced understanding to simplistic binary choices, ignoring the ability to synthesize information, construct arguments, and communicate effectively across multiple modalities. In contrast, multimodal assessment captures the true essence of academic work—where students engage with diverse forms of expression and critical analysis. This is not just an improvement; it's a necessary evolution to foster genuine scholarly competence and prepare students for the complexities of modern academia.</p>
-                            <p>However, this transformation requires careful implementation. Educators must maintain oversight of AI-generated assessments to ensure academic integrity, address algorithmic bias, and preserve human judgment in the evaluation process. The goal is not to replace human assessment but to augment it with technology that expands our capacity to measure what truly matters in academic literacy.</p>
-                            <blockquote class="card__quote">
-                                <i class="fas fa-quote-left" aria-hidden="true"></i> The future of academic literacy assessment lies in technology that enhances human judgment rather than replaces it, creating evaluation frameworks that reflect the richness of scholarly practice.
-                            </blockquote>
-                            <div class="card__footer">
-                                Balancing technological innovation with scholarly integrity
-                            </div>
+                        <p>MCQ assessments are fundamentally inadequate for measuring true academic literacy. They reduce complex, nuanced understanding to simplistic binary choices, ignoring the ability to synthesize information, construct arguments, and communicate effectively across multiple modalities. In contrast, multimodal assessment captures the true essence of academic work—where students engage with diverse forms of expression and critical analysis. This is not just an improvement; it's a necessary evolution to foster genuine scholarly competence and prepare students for the complexities of modern academia.</p>
+                        <p>However, this transformation requires careful implementation. Educators must maintain oversight of AI-generated assessments to ensure academic integrity, address algorithmic bias, and preserve human judgment in the evaluation process. The goal is not to replace human assessment but to augment it with technology that expands our capacity to measure what truly matters in academic literacy.</p>
+                        <blockquote class="card__quote">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i> The future of academic literacy assessment lies in technology that enhances human judgment rather than replaces it, creating evaluation frameworks that reflect the richness of scholarly practice.
+                        </blockquote>
+                        <div class="card__footer">
+                            Balancing technological innovation with scholarly integrity
                         </div>
                     </div>
                 </div>
@@ -840,7 +614,7 @@
         <div class="copyright">
             <p>&copy; 2025 Dr Oscar Eybers</p>
             <div class="footer-buttons">
-                <a href="  https://oeybers-cpu.github.io/a_lit_models/  " class="footer-button">Home</a>
+                <a href="https://oeybers-cpu.github.io/a_lit_models/" class="footer-button">Home</a>
                 <a href="#" id="topLink" class="footer-button">
                     <i class="fas fa-arrow-up" aria-hidden="true"></i> Top
                 </a>
